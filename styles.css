@@ -1,0 +1,99 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+}
+
+section {
+    padding: 20px;
+    flex: 1;
+}
+
+.centered-image {
+    text-align: center;
+}
+
+.sidebar {
+    background-color: #f4f4f4;
+    width: 20%;
+    height: 100vh;
+    padding: 10px; /* 수정된 부분: 좁은 간격으로 조절 */
+    box-shadow: 5px 0 5px -5px #333;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; /* 수정된 부분: ul의 기본 margin을 제거하여 간격 조절 */
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.toggle-btn {
+    display: none; /* 추가된 부분: 기본적으로 숨김 */
+}
+
+@media only screen and (max-width: 768px) {
+    /* 추가된 부분: 화면이 작을 때(모바일 화면) 토글 버튼 표시 */
+    .navbar ul {
+        display: none;
+    }
+
+    .toggle-btn {
+        display: block;
+        font-size: 1.5em;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: -100%; /* 추가된 부분: 초기에는 왼쪽으로 숨겨짐 */
+        transition: 0.5s;
+    }
+
+    .sidebar.show {
+        left: 0; /* 추가된 부분: 토글 버튼 클릭 시 보이도록 함 */
+    }
+}
